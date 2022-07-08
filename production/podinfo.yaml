@@ -5,3 +5,11 @@ metadata:
   namespace: production
 spec:
   replicas: 2
+  template:
+    metadata:
+      labels:
+        app: podinfo
+    spec:
+      containers:
+        - name: podinfod
+          image: ghcr.io/stefanprodan/podinfo:5.0.0 # {"$imagepolicy": "production:podinfo"}
