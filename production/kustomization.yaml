@@ -5,3 +5,7 @@ resources:
 patchesStrategicMerge:
   - podinfo.yaml
   - producer-app.yaml
+images:
+- name: ghcr.io/stefanprodan/podinfo
+  newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "production:podinfo:name"}
+  newTag: 5.0.0 # {"$imagepolicy": "production:podinfo:tag"}
