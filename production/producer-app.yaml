@@ -4,4 +4,4 @@ metadata:
   name: producer-example
   namespace: production
 spec:
-  replicas: 2
+  replicas: 1
