@@ -100,9 +100,6 @@ metadata:
 spec:
   imageRepositoryRef:
     name: movie-service
-  filterTags:
-    pattern: '^develop-[a-fA-F0-9]+-(?P<ts>[1-9][0-9]*)'
-    extract: '$ts'
   policy:
-     numerical:
-      order: asc
+    semver:
+      range: 1.0.x

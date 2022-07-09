@@ -3,7 +3,8 @@ kind: Kustomization
 namespace: develop
 resources:
   - ../base
-patchesStrategicMerge: []
+patchesStrategicMerge:
+  - movie-service.yaml
 images:
   - name: ghcr.io/stefanprodan/podinfo
     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "develop:podinfo:name"}
