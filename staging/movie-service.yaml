@@ -4,7 +4,8 @@ metadata:
   name: movie-service
 spec:
   filterTags:
-   pattern: '.*-rc.*'
+    pattern: '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)-rc-(?P<ts>[1-9][0-9]*)'
+    extract: '$ts'
   policy:
-    semver:
-      range: '^1.x-0'
+     numerical:
+      order: asc
