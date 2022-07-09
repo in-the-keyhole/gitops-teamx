@@ -9,6 +9,6 @@ images:
   - name: ghcr.io/stefanprodan/podinfo
     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "develop:podinfo:name"}
     newTag: 5.0.3 # {"$imagepolicy": "develop:podinfo:tag"}
-  - name: keyholesoftware/movie-service-graphql
+  - name: keyholesoftware/movie-service
     newName: keyholesoftware/movie-service # {"$imagepolicy": "develop:movie-service:name"}
     newTag: develop-52be9aa-1657335039 # {"$imagepolicy": "develop:movie-service:tag"}
