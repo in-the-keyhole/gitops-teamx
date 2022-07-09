@@ -33,7 +33,7 @@ spec:
               value: -Xss256K -Xms16M -Xmx32M
             - name: server_port
               value: "8080"
-          image: keyholesoftware/movie-service-graphql:develop-52be9aa-1657334350
+          image: keyholesoftware/movie-service:develop-52be9aa-1657334350
           imagePullPolicy: Always
           name: movie-service
           ports:
