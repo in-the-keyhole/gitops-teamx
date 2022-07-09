@@ -11,4 +11,4 @@ images:
     newTag: 5.0.3 # {"$imagepolicy": "staging:podinfo:tag"}
   - name: keyholesoftware/movie-service-graphql
     newName: keyholesoftware/movie-service # {"$imagepolicy": "staging:movie-service:name"}
-    newTag: develop-52be9aa-1657335039 # {"$imagepolicy": "staging:movie-service:tag"}
+    newTag: 1.0.0-rc-1657338514 # {"$imagepolicy": "staging:movie-service:tag"}
