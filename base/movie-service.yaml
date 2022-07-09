@@ -100,6 +100,3 @@ metadata:
 spec:
   imageRepositoryRef:
     name: movie-service
-  policy:
-    semver:
-      range: 1.0.x

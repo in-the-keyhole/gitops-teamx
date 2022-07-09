@@ -4,7 +4,7 @@ metadata:
   name: movie-service
 spec:
   filterTags:
-    pattern: '^develop-[a-fA-F0-9]+-(?P<ts>[1-9][0-9]*)'
+    pattern: '^develop-[a-fA-F0-9]+-(?P<ts>.*)'
     extract: '$ts'
   policy:
      numerical:
