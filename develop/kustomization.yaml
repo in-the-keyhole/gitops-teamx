@@ -9,4 +9,4 @@ patchesStrategicMerge: []
 images:
   - name: ghcr.io/stefanprodan/podinfo
     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "develop:podinfo:name"}
-    newTag: 5.0.3 # {"$imagepolicy": "develop:podinfo:tag"}
+    newTag: 5.0.0 # {"$imagepolicy": "develop:podinfo:tag"}
