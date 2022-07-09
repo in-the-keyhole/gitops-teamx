@@ -67,29 +67,11 @@ spec:
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: movie-service-playground
+  name: movie-service
   labels:
     app: movie-service
 spec:
-  path: /playground
-  to:
-    kind: Service
-    name: movie-service
-    weight: 100
-  port:
-    targetPort: http
-  tls:
-    termination: edge
-  wildcardPolicy: None
----
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  name: movie-service-graphql
-  labels:
-    app: movie-service
-spec:
-  path: /graphql
+  path: /
   to:
     kind: Service
     name: movie-service
