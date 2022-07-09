@@ -13,4 +13,4 @@ images:
     newTag: 5.0.3 # {"$imagepolicy": "production:podinfo:tag"}
   - name: keyholesoftware/movie-service
     newName: keyholesoftware/movie-service # {"$imagepolicy": "production:movie-service:name"}
-    newTag: develop-52be9aa-1657335039 # {"$imagepolicy": "production:movie-service:tag"}
+    newTag: 1.0.0 # {"$imagepolicy": "production:movie-service:tag"}
