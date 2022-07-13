@@ -5,6 +5,7 @@ resources:
   - ../base
 patchesStrategicMerge:
   - movie-service.yaml
+  - producer-app.yaml
 images:
   - name: ghcr.io/stefanprodan/podinfo
     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "develop:podinfo:name"}
