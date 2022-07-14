@@ -27,6 +27,7 @@ apiVersion: platform.confluent.io/v1beta1
 kind: KafkaTopic
 metadata:
   name: producer-example-staging
+  namespace: staging
 spec:
   replicas: 3
   partitionCount: 1
