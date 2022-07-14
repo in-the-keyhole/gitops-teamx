@@ -16,7 +16,7 @@ spec:
         - -c
         - |
           kafka-producer-perf-test \
-            --topic producer-example-develop  \
+            --topic producer-example-staging  \
             --record-size 64 \
             --throughput 1 \
             --producer.config /mnt/kafka.properties \
@@ -26,8 +26,7 @@ spec:
 apiVersion: platform.confluent.io/v1beta1
 kind: KafkaTopic
 metadata:
-  name: producer-example-develop
-  namespace: confluent
+  name: producer-example-staging
 spec:
   replicas: 3
   partitionCount: 1
