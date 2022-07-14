@@ -9,7 +9,7 @@ patchesStrategicMerge:
 patchesJson6902:
   - target:
       group: ""
-      version: platform.confluent.io/v1beta1
+      version: v1beta1
       kind: KafkaTopic
       name: producer-example-staging
     patch: |-
