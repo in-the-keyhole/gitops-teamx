@@ -10,7 +10,7 @@ patchesJson6902:
   target:
     kind: KafkaTopic
     name: producer-example
-path: topic-patches.yaml
+    path: topic-patches.yaml 
 images:
   - name: ghcr.io/stefanprodan/podinfo
     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "staging:podinfo:name"}
