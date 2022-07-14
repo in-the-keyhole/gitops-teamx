@@ -1,0 +1,10 @@
+# https://docs.confluent.io/operator/current/co-manage-topics.html#create-ak-topic
+apiVersion: platform.confluent.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: producer-example-staging
+spec:
+  replicas: 3
+  partitionCount: 1
+  configs:
+    cleanup.policy: "delete"
