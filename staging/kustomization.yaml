@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: staging
 resources:
   - ../base
+  - kafka-config.yaml
 patchesStrategicMerge:
   # - movie-service.yaml
   - producer-app.yaml
