@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: producer-example
+spec:
+  template:
+    metadata:
+      labels:
+        app: producer-example
+    spec:
+      containers:
+      - name: producer-example
+        command:
+        - /bin/sh
+        - -c
+        - |
+          kafka-producer-perf-test \
+            --topic producer-example-production  \
+            --record-size 64 \
+            --throughput 1 \
+            --producer.config /mnt/kafka.properties \
+            --num-records 230400
