@@ -8,8 +8,8 @@ patchesStrategicMerge:
   - producer-app.yaml
 patchesJson6902:
   - target:
-      group: ""
-      version: v1
+      group: "kustomize.config.k8s.io"
+      version: v1beta1
       kind: KafkaTopic
       name: producer-example-staging
     patch: |-
