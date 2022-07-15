@@ -1,23 +1,6 @@
----
-apiVersion: apps/v1
-kind: StatefulSet
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: producer-example
-spec:
-  template:
-    metadata:
-      labels:
-        app: producer-example
-    spec:
-      containers:
-      - name: producer-example
-        command:
-        - /bin/sh
-        - -c
-        - |
-          kafka-producer-perf-test \
-            --topic producer-example-staging  \
-            --record-size 64 \
-            --throughput 1 \
-            --producer.config /mnt/kafka.properties \
-            --num-records 230400
+  name: kafka-client-config
+data:
+  topic: producer-example-staging  # patch topic name for this environment

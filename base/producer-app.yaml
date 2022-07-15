@@ -1,10 +1,12 @@
 apiVersion: v1
-kind: Secret
+kind: ConfigMap
 metadata:
   name: kafka-client-config
-type: Opaque
 data:
-  kafka.properties: Ym9vdHN0cmFwLnNlcnZlcnM9a2Fma2EuY29uZmx1ZW50LnN2Yy5jbHVzdGVyLmxvY2FsOjkwNzEKc2VjdXJpdHkucHJvdG9jb2w9UExBSU5URVhU
+  topic: producer-example  # This can get patched in each environment
+  kafka.properties: |
+    bootstrap.servers=kafka.confluent.svc.cluster.local:9071
+    security.protocol=PLAINTEXT
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -31,11 +33,17 @@ spec:
         - -c
         - |
           kafka-producer-perf-test \
-            --topic <patch-me>  \
+            --topic $TOPIC_NAME  \
             --record-size 64 \
             --throughput 1 \
             --producer.config /mnt/kafka.properties \
             --num-records 230400
+        env:
+        - name: TOPIC_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-client-config
+              key: topic
         volumeMounts:
         - name: kafka-properties
           mountPath: /mnt
@@ -46,8 +54,8 @@ spec:
             cpu: 500m # 1000m
       volumes:
         - name: kafka-properties # Create secret with name `kafka-client-config` with client configurations
-          secret:
-            secretName: kafka-client-config
+          configMap:
+            name: kafka-client-config
 ---
 apiVersion: v1
 kind: Service

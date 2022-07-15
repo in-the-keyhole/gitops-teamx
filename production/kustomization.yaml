@@ -6,7 +6,7 @@ resources:
   - kafka-topics.yaml
 patchesStrategicMerge:
   # - movie-service.yaml
-  - producer-app.yaml
+  # - producer-app.yaml
 patchesJson6902:
   # This keeps all kafka topics in the confluent namespace
   # Otherwise kustomize places them in the namespace: specified above
