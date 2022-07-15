@@ -3,20 +3,17 @@ kind: Kustomization
 namespace: production
 resources:
   - ../base
-  - kafka-topics.yaml
 patchesStrategicMerge:
   # - movie-service.yaml
-  # - producer-app.yaml
+  # - producer-app.yaml  # in a "real" application, this will need to be patched to support image tags (at least)
 patchesJson6902:
-  # This keeps all kafka topics in the confluent namespace
-  # Otherwise kustomize places them in the namespace: specified above
   - target:
       group: ""
       version: v1beta1
       kind: KafkaTopic
       name: .*
     patch: |-
-      - op: replace
+      - op: replace                 # patch KafkaTopic namespace to confluent - it MUST be there, and kustomize overrides it to namespace: above
         path: /metadata/namespace
         value: confluent
 # images:

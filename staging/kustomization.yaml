@@ -3,22 +3,22 @@ kind: Kustomization
 namespace: staging
 resources:
   - ../base
-  - kafka-topics.yaml
 patchesStrategicMerge:
   # - movie-service.yaml
   - producer-app.yaml
 patchesJson6902:
-  # This keeps all kafka topics in the confluent namespace
-  # Otherwise kustomize places them in the namespace: specified above
   - target:
       group: ""
       version: v1beta1
       kind: KafkaTopic
       name: .*
     patch: |-
-      - op: replace
+      - op: replace                 # patch KafkaTopic namespace to confluent - it MUST be there, and kustomize overrides it to namespace: above
         path: /metadata/namespace
         value: confluent
+      - op: replace                 # patch KafkaTopic name for this environment
+        path: /metadata/name
+        value: producer-example-staging
 # images:
 #   - name: ghcr.io/stefanprodan/podinfo
 #     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "staging:podinfo:name"}
