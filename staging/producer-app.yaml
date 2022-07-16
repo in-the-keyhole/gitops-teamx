@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: kafka-client-config
 data:
-  topic: simple-producer-staging  # patch topic name for this environment
+  topic: example-topic-staging  # patch topic name for this environment
