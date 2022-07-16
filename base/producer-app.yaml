@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: kafka-client-config
 data:
-  topic: producer-example  # This can get patched in each environment
+  topic: example-topic  # This can get patched in each environment
   bootstrap.servers: kafka.confluent.svc.cluster.local:9092
   group.id: example
   # kafka.properties is used by producer shell script
@@ -15,7 +15,7 @@ data:
 apiVersion: platform.confluent.io/v1beta1
 kind: KafkaTopic
 metadata:
-  name: producer-example
+  name: example-topic
   namespace: confluent  # This needs to be in the confluent namespace -- but kustomize will put it in the app namespace, patched in env file
 spec:
   replicas: 3
@@ -26,21 +26,21 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: producer-example
+  name: simple-producer
 spec:
-  serviceName: producer-example
+  serviceName: simple-producer
   podManagementPolicy: Parallel
   replicas: 1
   selector:
     matchLabels:
-      app: producer-example
+      app: simple-producer
   template:
     metadata:
       labels:
-        app: producer-example
+        app: simple-producer
     spec:
       containers:
-      - name: producer-example
+      - name: simple-producer
         image: confluentinc/cp-kafka:latest
         imagePullPolicy: IfNotPresent
         command:
@@ -75,7 +75,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: producer-example
+  name: simple-producer
 spec:
   clusterIP: None
 

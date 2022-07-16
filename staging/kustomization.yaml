@@ -18,7 +18,7 @@ patchesJson6902:
         value: confluent
       - op: replace                 # patch KafkaTopic name for this environment
         path: /metadata/name
-        value: producer-example-staging
+        value: simple-producer-staging
 # images:
 #   - name: ghcr.io/stefanprodan/podinfo
 #     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "staging:podinfo:name"}

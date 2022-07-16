@@ -1,0 +1,38 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-consumer
+  namespace: staging
+spec:
+  selector:
+    matchLabels:
+      app: kafka-consumer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kafka-consumer
+    spec:
+      containers:
+        - name: kafka-consumer
+          image: >-
+            keyholesoftware/kafka-consumer:latest
+          imagePullPolicy: Always
+          env:
+          - name: BOOTSTRAP_SERVER
+            valueFrom:
+              configMapKeyRef:
+                name: kafka-client-config
+                key: bootstrap.servers
+          - name: GROUP_ID
+            valueFrom:
+              configMapKeyRef:
+                name: kafka-client-config
+                key: group.id
+          - name: TOPIC_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: kafka-client-config
+                key: topic
