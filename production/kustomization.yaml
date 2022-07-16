@@ -5,7 +5,7 @@ resources:
   - ../base
 patchesStrategicMerge:
   # - movie-service.yaml
-  - producer-app.yaml
+  # - producer-app.yaml  # in a "real" application, this will need to be patched to support image tags (at least)
 patchesJson6902:
   - target:
       group: ""

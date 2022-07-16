@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: kafka-client-config
-data:
-  topic: example-topic-staging  # This can get patched in each environment
-  group.id: example-staging
