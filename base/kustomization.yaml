@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   # - movie-service.yaml
   - producer-app.yaml
+  - consumer-app.yaml
