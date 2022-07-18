@@ -11,12 +11,18 @@ patchesJson6902:
   - target:
       group: ""
       version: v1beta1
-      kind: KafkaTopic
+      labelSelector: "target-namespace=confluent"
       name: .*
     patch: |-
       - op: replace                 # patch KafkaTopic namespace to confluent - it MUST be there, and kustomize overrides it to namespace: above
         path: /metadata/namespace
         value: confluent
+  - target:
+      group: ""
+      version: v1beta1
+      kind: KafkaTopic
+      name: .*
+    patch: |-
       - op: replace                 # patch KafkaTopic name for this environment
         path: /metadata/name
         value: example-topic-staging
