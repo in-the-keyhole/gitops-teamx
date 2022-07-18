@@ -23,8 +23,3 @@ To use it, follow the [Getting Started](https://code.visualstudio.com/docs/remot
 ```
 oc login --server=$OPENSHIFT_SERVER --username=$OPENSHIFT_USER --password=$OPENSHIFT_PASSWORD
 ```
-
-
-### WHY IS KAFKATOPIC NOT PROVISIONED?
-
-if i provision it manually in staging workspace, what happens?
