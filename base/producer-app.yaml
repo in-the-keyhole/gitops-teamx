@@ -22,7 +22,7 @@ spec:
   partitionCount: 1
   configs:
     cleanup.policy: "delete"
-    retention.bytes: 1073741824
+    retention.bytes: "1073741824"
 ---
 apiVersion: apps/v1
 kind: StatefulSet
