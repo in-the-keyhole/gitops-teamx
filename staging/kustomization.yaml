@@ -4,8 +4,8 @@ namespace: staging
 resources:
   - ../base
 patchesStrategicMerge:
-  # - movie-service.yaml
   - producer-app.yaml
+  - consumer-app.yaml
 patchesJson6902:
   - target:
       group: ""

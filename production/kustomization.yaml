@@ -4,7 +4,7 @@ namespace: production
 resources:
   - ../base
 patchesStrategicMerge:
-  # - movie-service.yaml
+  - consumer-app.yaml
   # - producer-app.yaml  # in a "real" application, this will need to be patched to support image tags (at least)
 patchesJson6902:
   - target:
@@ -16,10 +16,7 @@ patchesJson6902:
       - op: replace                 # patch KafkaTopic namespace to confluent - it MUST be there, and kustomize overrides it to namespace: above
         path: /metadata/namespace
         value: confluent
-# images:
-#   - name: ghcr.io/stefanprodan/podinfo
-#     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "production:podinfo:name"}
-#     newTag: 5.0.3 # {"$imagepolicy": "production:podinfo:tag"}
-#   - name: keyholesoftware/movie-service
-#     newName: keyholesoftware/movie-service # {"$imagepolicy": "production:movie-service:name"}
-#     newTag: 1.0.0-rc-1657339140 # {"$imagepolicy": "production:movie-service:tag"}
+images:
+  - name: keyholesoftware/kafka-consumer
+    newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "production:kafka-consumer:name"}
+    newTag: latest # {"$imagepolicy": "production:kafka-consumer:tag"}
