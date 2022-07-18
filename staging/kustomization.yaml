@@ -22,4 +22,4 @@ patchesJson6902:
 images:
   - name: keyholesoftware/kafka-service
     newName: keyholesoftware/kafka-service # {"$imagepolicy": "staging:kafka-service:name"}
-    newTag: latest # {"$imagepolicy": "staging:kafka-service:tag"}
+    newTag: main-52be9aa-1657335039 # {"$imagepolicy": "staging:kafka-service:tag"}
