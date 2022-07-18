@@ -36,3 +36,21 @@ spec:
               configMapKeyRef:
                 name: kafka-client-config
                 key: topic
+---
+# Image repository to watch tags in
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: kafka-consumer
+spec:
+  image: keyholesoftware/kafka-consumer
+  interval: 1m0s
+---
+# Image policy to update 'patch' versions of keyholesoftware/kafka-consumer image
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: kafka-consumer
+spec:
+  imageRepositoryRef:
+    name: kafka-consumer

@@ -19,10 +19,7 @@ patchesJson6902:
       - op: replace                 # patch KafkaTopic name for this environment
         path: /metadata/name
         value: example-topic-staging
-# images:
-#   - name: ghcr.io/stefanprodan/podinfo
-#     newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "staging:podinfo:name"}
-#     newTag: 5.0.3 # {"$imagepolicy": "staging:podinfo:tag"}
-#   - name: keyholesoftware/movie-service
-#     newName: keyholesoftware/movie-service # {"$imagepolicy": "staging:movie-service:name"}
-#     newTag: 1.0.0-rc-1657339140 # {"$imagepolicy": "staging:movie-service:tag"}
+images:
+  - name: keyholesoftware/kafka-service
+    newName: keyholesoftware/kafka-service # {"$imagepolicy": "staging:kafka-service:name"}
+    newTag: latest # {"$imagepolicy": "staging:kafka-service:tag"}
