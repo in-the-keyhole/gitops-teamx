@@ -19,4 +19,4 @@ patchesJson6902:
 images:
   - name: keyholesoftware/kafka-consumer
     newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "production:kafka-consumer:name"}
-    newTag: latest # {"$imagepolicy": "production:kafka-consumer:tag"}
+    newTag: 1.0.0 # {"$imagepolicy": "production:kafka-consumer:tag"}
