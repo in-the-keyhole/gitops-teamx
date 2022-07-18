@@ -4,6 +4,8 @@ kind: KafkaTopic
 metadata:
   name: example-topic
   namespace: confluent  # This needs to be in the confluent namespace -- but kustomize will put it in the app namespace, patched in env file
+  labels:
+    target-namespace: confluent
 spec:
   replicas: 3
   partitionCount: 1
@@ -29,6 +31,8 @@ kind: Connector
 metadata:
   name: datagen-users
   namespace: confluent
+  labels:
+    target-namespace: confluent
 spec:
   class: "io.confluent.kafka.connect.datagen.DatagenConnector"
   taskMax: 1
