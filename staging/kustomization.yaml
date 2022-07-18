@@ -21,5 +21,5 @@ patchesJson6902:
         value: example-topic-staging
 images:
   - name: keyholesoftware/kafka-consumer
-    newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "staging:kafka-service:name"}
-    newTag: latest # {"$imagepolicy": "staging:kafka-service:tag"}
+    newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "staging:kafka-consumer:name"}
+    newTag: latest # {"$imagepolicy": "staging:kafka-consumer:tag"}
