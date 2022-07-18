@@ -20,6 +20,6 @@ patchesJson6902:
         path: /metadata/name
         value: example-topic-staging
 images:
-  - name: keyholesoftware/kafka-service
-    newName: keyholesoftware/kafka-service # {"$imagepolicy": "staging:kafka-service:name"}
-    newTag: main-52be9aa-1657335039 # {"$imagepolicy": "staging:kafka-service:tag"}
+  - name: keyholesoftware/kafka-consumer
+    newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "staging:kafka-service:name"}
+    newTag: latest # {"$imagepolicy": "staging:kafka-service:tag"}
