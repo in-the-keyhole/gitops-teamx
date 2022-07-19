@@ -13,6 +13,7 @@ spec:
     cleanup.policy: "delete"
     retention.bytes: "1073741824"
 ---
+# ConfigMap for Kafka client configuration 
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -26,6 +27,7 @@ data:
     bootstrap.servers=kafka.confluent.svc.cluster.local:9092
     security.protocol=PLAINTEXT
 ---
+# Use the datagen connector to produce messages on example-topic-staging
 apiVersion: platform.confluent.io/v1beta1
 kind: Connector
 metadata:
@@ -45,4 +47,4 @@ spec:
     value.converter: "org.apache.kafka.connect.json.JsonConverter"
     value.converter.schemas.enable: "false"
     max.interval: "3000"
-    iterations: "10000"
+    iterations: "100000"
