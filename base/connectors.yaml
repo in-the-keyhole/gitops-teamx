@@ -47,10 +47,10 @@ spec:
     value.converter.schemas.enable: "false"
     schema.compatibility: "NONE"
     # perform a Single Message Transform - remove userid and rename regionid
-    transforms: "replacefield,tsConverter"
-    transforms.replacefield.type: "org.apache.kafka.connect.transforms.ReplaceField$Value"
-    transforms.replacefield.exclude: "userid"
-    transforms.replacefield.renames: "regionid:Region_Id"
+    transforms: "replaceField,tsConverter"
+    transforms.replaceField.type: "org.apache.kafka.connect.transforms.ReplaceField$Value"
+    transforms.replaceField.exclude: "userid"
+    transforms.replaceField.renames: "regionid:Region_Id"
     # performs a Single Message Transform - converting registertime ts to datetime string
     transforms.tsConverter.type: "org.apache.kafka.connect.transforms.TimestampConverter$Value"
     transforms.tsConverter.field: "registertime"
