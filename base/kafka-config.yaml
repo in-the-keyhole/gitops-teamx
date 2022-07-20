@@ -3,7 +3,7 @@ apiVersion: platform.confluent.io/v1beta1
 kind: KafkaTopic
 metadata:
   name: example-topic
-  namespace: confluent  # This needs to be in the confluent namespace -- but kustomize will put it in the app namespace, patched in env file
+  namespace: confluent # This needs to be in the confluent namespace -- but kustomize will put it in the app namespace, patched in env file
   labels:
     target-namespace: confluent
 spec:
@@ -13,38 +13,16 @@ spec:
     cleanup.policy: "delete"
     retention.bytes: "1073741824"
 ---
-# ConfigMap for Kafka client configuration 
+# ConfigMap for Kafka client configuration
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-client-config
 data:
-  topic: example-topic  # This can get patched in each environment
+  topic: example-topic # This can get patched in each environment
   bootstrap.servers: kafka.confluent.svc.cluster.local:9092
   group.id: example
   # kafka.properties is used by producer shell script
   kafka.properties: |
     bootstrap.servers=kafka.confluent.svc.cluster.local:9092
     security.protocol=PLAINTEXT
----
-# Use the datagen connector to produce messages on example-topic-staging
-apiVersion: platform.confluent.io/v1beta1
-kind: Connector
-metadata:
-  name: datagen-users
-  namespace: confluent
-  labels:
-    target-namespace: confluent
-spec:
-  class: "io.confluent.kafka.connect.datagen.DatagenConnector"
-  taskMax: 1
-  connectClusterRef:
-    name: connect
-  configs:
-    kafka.topic: "example-topic-staging"
-    quickstart: "users"
-    key.converter: "org.apache.kafka.connect.storage.StringConverter"
-    value.converter: "org.apache.kafka.connect.json.JsonConverter"
-    value.converter.schemas.enable: "false"
-    max.interval: "3000"
-    iterations: "100000"
