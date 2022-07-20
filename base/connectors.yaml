@@ -46,3 +46,8 @@ spec:
     value.converter: "org.apache.kafka.connect.json.JsonConverter"
     value.converter.schemas.enable: "false"
     schema.compatibility: "NONE"
+    # perform a Single Message Transform - remove userid and rename regionid
+    transforms: "replacefield"
+    transforms.replacefield.type: "org.apache.kafka.connect.transforms.ReplaceField$Value"
+    transforms.replacefield.exclude: "userid"
+    transforms.replacefield.renames: "regionid:Region_Id"
