@@ -46,12 +46,18 @@ spec:
     value.converter: "org.apache.kafka.connect.json.JsonConverter"
     value.converter.schemas.enable: "false"
     schema.compatibility: "NONE"
-    # perform a Single Message Transform - remove userid and rename regionid
-    transforms: "replaceField,tsConverter"
+    # perform a Single Message Transform
+    transforms: "femalesOnly,replaceField,tsConverter"
+    # filter including only dump records for females to s3
+    # Note: this requires confluent transforms installed from hub
+    transforms.femalesOnly.type: "io.confluent.connect.transforms.Filter$Value"
+    transforms.femalesOnly.filter.type: "include"
+    transforms.femalesOnly.filter.condition: "$[?(@.gender == 'FEMALE')]"
+    # remove userid and rename regionid
     transforms.replaceField.type: "org.apache.kafka.connect.transforms.ReplaceField$Value"
     transforms.replaceField.exclude: "userid"
     transforms.replaceField.renames: "regionid:Region_Id"
-    # performs a Single Message Transform - converting registertime ts to datetime string
+    # convert registertime ts to datetime string
     transforms.tsConverter.type: "org.apache.kafka.connect.transforms.TimestampConverter$Value"
     transforms.tsConverter.field: "registertime"
     transforms.tsConverter.format: "yyyy-MM-dd.mm.hh.ss"
