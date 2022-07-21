@@ -12,7 +12,7 @@ patchesJson6902:
       labelSelector: "target-namespace=confluent"
       name: .*
     patch: |-
-      - op: replace                 # patch KafkaTopic namespace to confluent - it MUST be there, and kustomize overrides it to namespace: above
+      - op: replace                 # patch resources targeted to the confluent namespace - this is necessary b/c kustomize overrides it to namespace specified on line 3
         path: /metadata/namespace
         value: confluent
   - target:
