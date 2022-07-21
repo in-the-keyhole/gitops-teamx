@@ -19,21 +19,21 @@ spec:
             keyholesoftware/kafka-consumer:latest
           imagePullPolicy: Always
           env:
-          - name: BOOTSTRAP_SERVER
-            valueFrom:
-              configMapKeyRef:
-                name: kafka-client-config
-                key: bootstrap.servers
-          - name: GROUP_ID
-            valueFrom:
-              configMapKeyRef:
-                name: kafka-client-config
-                key: group.id
-          - name: TOPIC_NAME
-            valueFrom:
-              configMapKeyRef:
-                name: kafka-client-config
-                key: topic
+            - name: BOOTSTRAP_SERVER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-client-config
+                  key: bootstrap.servers
+            - name: GROUP_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-client-config
+                  key: group.id
+            - name: TOPIC_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-client-config
+                  key: topic
 ---
 # Image repository to watch tags in
 apiVersion: image.toolkit.fluxcd.io/v1beta1
@@ -44,11 +44,15 @@ spec:
   image: keyholesoftware/kafka-consumer
   interval: 1m0s
 ---
-# Image policy to update 'patch' versions of keyholesoftware/kafka-consumer image
+# In trunk-based development - using CD, the ImagePolicy can be the same across environments
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
   name: kafka-consumer
 spec:
-  imageRepositoryRef:
-    name: kafka-consumer
+  filterTags:
+    pattern: "^[a-fA-F0-9]+-(?P<ts>.*)"
+    extract: "$ts"
+  policy:
+    numerical:
+      order: asc

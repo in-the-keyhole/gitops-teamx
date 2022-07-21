@@ -3,14 +3,11 @@ kind: Kustomization
 namespace: production
 resources:
   - ../base
-patchesStrategicMerge:
-  - consumer-app.yaml
-  # - producer-app.yaml  # in a "real" application, this will need to be patched to support image tags (at least)
+patchesStrategicMerge: []
 patchesJson6902:
   - target:
       group: ""
       version: v1beta1
-      # kind: KafkaTopic
       labelSelector: "target-namespace=confluent"
       name: .*
     patch: |-

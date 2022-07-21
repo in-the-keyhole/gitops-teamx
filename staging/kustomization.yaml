@@ -5,8 +5,6 @@ resources:
   - ../base
 patchesStrategicMerge:
   - kafka-config.yaml
-  # - producer-app.yaml
-  - consumer-app.yaml
 patchesJson6902:
   - target:
       group: ""
