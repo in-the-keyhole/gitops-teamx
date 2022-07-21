@@ -56,3 +56,5 @@ spec:
   policy:
     numerical:
       order: asc
+  imageRepositoryRef:
+    name: kafka-consumer
