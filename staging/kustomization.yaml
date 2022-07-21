@@ -27,4 +27,4 @@ patchesJson6902:
 images:
   - name: keyholesoftware/kafka-consumer
     newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "staging:kafka-consumer:name"}
-    newTag: 50040f75-1658435458 # {"$imagepolicy": "staging:kafka-consumer:tag"}
+    newTag: 8c446ad6-1658437896 # {"$imagepolicy": "staging:kafka-consumer:tag"}
