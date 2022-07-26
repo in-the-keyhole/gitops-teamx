@@ -60,6 +60,22 @@ spec:
   selector:
     app: now-playing-api
 ---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: now-playing-api
+  namespace: staging
+spec:
+  to:
+    kind: Service
+    name: now-playing-api
+    weight: 100
+  port:
+    targetPort: 4000
+  tls:
+    termination: edge
+  wildcardPolicy: None
+---
 # Image repository to watch tags in
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
