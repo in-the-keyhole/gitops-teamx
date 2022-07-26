@@ -23,11 +23,16 @@
 	"features": {
 		"aws-cli": "latest"
 	},
+	"settings": {
+		"kubeseal.executablePath": "/usr/local/bin/kubeseal"
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"eamodio.gitlens",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"adamhartford.vscode-base64",
+				"codecontemplator.kubeseal"
 			]
 		}
 	}
