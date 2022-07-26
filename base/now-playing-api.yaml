@@ -44,6 +44,22 @@ spec:
                   name: now-playing-api-secret
                   key: tmdb_api_key
 ---
+kind: Service
+apiVersion: v1
+metadata:
+  name: now-playing-api
+  namespace: staging
+spec:
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  sessionAffinity: None
+  selector:
+    app: now-playing-api
+---
 # Image repository to watch tags in
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
