@@ -20,4 +20,4 @@ images:
     newTag: 62dae48e-1658438810 # {"$imagepolicy": "production:kafka-consumer:tag"}
   - name: keyholesoftware/now-playing-api
     newName: keyholesoftware/now-playing-api # {"$imagepolicy": "production:now-playing-api:name"}
-    newTag: eba944f6-1658851378 # {"$imagepolicy": "production:now-playing-api:tag"}
+    newTag: c2e72188-1658954597 # {"$imagepolicy": "production:now-playing-api:tag"}
