@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: now-playing-api-feature-flags
 data:
-  credits_enabled: true
+  credits_enabled: "true"
