@@ -5,3 +5,7 @@ resources:
   # - producer-app.yaml # now using datagen connector to generate a load
   - consumer-app.yaml
   - now-playing-api.yaml
+configMapGenerator:
+  - name: now-playing-api-feature-flags
+    literals:
+      - credits_enabled=false

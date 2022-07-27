@@ -5,7 +5,6 @@ resources:
   - ../base
 patchesStrategicMerge:
   - kafka-config.yaml
-  - now-playing-api.yaml
 patchesJson6902:
   - target:
       group: ""
@@ -32,3 +31,8 @@ images:
   - name: keyholesoftware/now-playing-api
     newName: keyholesoftware/now-playing-api # {"$imagepolicy": "staging:now-playing-api:name"}
     newTag: c2e72188-1658954597 # {"$imagepolicy": "staging:now-playing-api:tag"}
+configMapGenerator:
+  - name: now-playing-api-feature-flags
+    behavior: replace
+    literals:
+      - credits_enabled=true
