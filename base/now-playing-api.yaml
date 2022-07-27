@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: now-playing-api-feature-flags
 data:
-  credits_enabled: "false" # This can get patched in each environment
+  credits_enabled: "true" # This can get patched in each environment
 ---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
