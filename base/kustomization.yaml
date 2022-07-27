@@ -8,4 +8,4 @@ resources:
 configMapGenerator:
   - name: now-playing-api-feature-flags
     literals:
-      - credits_enabled=false
+      - credits_enabled=true
