@@ -34,5 +34,5 @@ images:
 configMapGenerator:
   - name: now-playing-api-feature-flags
     behavior: replace
-    literals:
-      - credits_enabled=true
+    envs:
+      - now-playing-api-features.env

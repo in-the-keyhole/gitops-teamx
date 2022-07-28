@@ -7,5 +7,5 @@ resources:
   - now-playing-api.yaml
 configMapGenerator:
   - name: now-playing-api-feature-flags
-    literals:
-      - credits_enabled=true
+    envs:
+      - now-playing-api-features.env
