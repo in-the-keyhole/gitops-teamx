@@ -22,7 +22,7 @@ data:
   topic: example-topic # This can get patched in each environment
   bootstrap.servers: kafka.confluent.svc.cluster.local:9092
   group.id: example
-  # kafka.properties is used by producer shell script
-  kafka.properties: |
-    bootstrap.servers=kafka.confluent.svc.cluster.local:9092
-    security.protocol=PLAINTEXT
+  # # kafka.properties is used by producer shell script
+  # kafka.properties: |
+  #   bootstrap.servers=kafka.confluent.svc.cluster.local:9092
+  #   security.protocol=PLAINTEXT
