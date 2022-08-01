@@ -24,7 +24,7 @@ patchesJson6902:
       - op: replace                 # patch KafkaTopic name for this environment
         path: /metadata/name
         value: example-topic-staging
-images:
+images: # The following configuration supports a Continuous Delivery model in k8s
   - name: keyholesoftware/kafka-consumer
     newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "staging:kafka-consumer:name"}
     newTag: 62dae48e-1658438810 # {"$imagepolicy": "staging:kafka-consumer:tag"}
