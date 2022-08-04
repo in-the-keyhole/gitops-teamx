@@ -15,8 +15,6 @@ To use it, follow the [Getting Started](https://code.visualstudio.com/docs/remot
 - OPENSHIFT_SERVER - The OpenShift server URL
 - OPENSHIFT_USER - The Openshift username with admin priveleges
 - OPENSHIFT_PASSWORD - The password for the Openshift user
-- GITHUB_ORGANIZATION - A valid GitHub organization
-- GITHUB_TOKEN - A valid GitHub personal access token (PAT)
 
 ### Authenticate with Openshift
 
