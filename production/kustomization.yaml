@@ -14,7 +14,7 @@ patchesJson6902:
       - op: replace                 # patch KafkaTopic namespace to confluent - it MUST be there, and kustomize overrides it to namespace: above
         path: /metadata/namespace
         value: confluent
-images:
+images: # The following configuration supports a Continuous Delivery model in k8s
   - name: keyholesoftware/kafka-consumer
     newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "production:kafka-consumer:name"}
     newTag: 62dae48e-1658438810 # {"$imagepolicy": "production:kafka-consumer:tag"}

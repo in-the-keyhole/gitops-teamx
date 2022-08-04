@@ -16,7 +16,7 @@ spec:
       containers:
         - name: kafka-consumer
           image: >-
-            keyholesoftware/kafka-consumer:latest
+            keyholesoftware/kafka-consumer:62dae48e-1658438810
           imagePullPolicy: Always
           env:
             - name: BOOTSTRAP_SERVER
