@@ -4,8 +4,8 @@ resources:
   - kafka-config.yaml
   # - producer-app.yaml # now using datagen connector to generate a load
   - consumer-app.yaml
-  - now-playing-api.yaml
-configMapGenerator:
-  - name: now-playing-api-feature-flags
-    envs:
-      - now-playing-api-features.env
+  # - now-playing-api.yaml
+# configMapGenerator:
+#   - name: now-playing-api-feature-flags
+#     envs:
+#       - now-playing-api-features.env
