@@ -4,26 +4,26 @@ namespace: staging
 resources:
   # - ../base
 patchesStrategicMerge:
-  - kafka-config.yaml
-patchesJson6902:
-  - target:
-      group: ""
-      version: v1beta1
-      labelSelector: "target-namespace=confluent"
-      name: .*
-    patch: |-
-      - op: replace                 # patch resources targeted to the confluent namespace - this is necessary b/c kustomize overrides it to namespace specified on line 3
-        path: /metadata/namespace
-        value: confluent
-  - target:
-      group: ""
-      version: v1beta1
-      kind: KafkaTopic
-      name: .*
-    patch: |-
-      - op: replace                 # patch KafkaTopic name for this environment
-        path: /metadata/name
-        value: example-topic-staging
+  # - kafka-config.yaml
+# patchesJson6902:
+#   - target:
+#       group: ""
+#       version: v1beta1
+#       labelSelector: "target-namespace=confluent"
+#       name: .*
+#     patch: |-
+#       - op: replace                 # patch resources targeted to the confluent namespace - this is necessary b/c kustomize overrides it to namespace specified on line 3
+#         path: /metadata/namespace
+#         value: confluent
+#   - target:
+#       group: ""
+#       version: v1beta1
+#       kind: KafkaTopic
+#       name: .*
+#     patch: |-
+#       - op: replace                 # patch KafkaTopic name for this environment
+#         path: /metadata/name
+#         value: example-topic-staging
 images: # The following configuration supports a Continuous Delivery model in k8s
   - name: keyholesoftware/kafka-consumer
     newName: keyholesoftware/kafka-consumer # {"$imagepolicy": "staging:kafka-consumer:name"}
