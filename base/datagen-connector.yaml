@@ -1,0 +1,22 @@
+---
+# Use the datagen connector to produce messages on example-topic-staging
+apiVersion: platform.confluent.io/v1beta1
+kind: Connector
+metadata:
+  name: datagen-users
+  namespace: confluent
+  labels:
+    target-namespace: confluent
+spec:
+  class: "io.confluent.kafka.connect.datagen.DatagenConnector"
+  taskMax: 1
+  connectClusterRef:
+    name: connect
+  configs:
+    kafka.topic: "example-topic-staging"
+    quickstart: "users"
+    key.converter: "org.apache.kafka.connect.storage.StringConverter"
+    value.converter: "org.apache.kafka.connect.json.JsonConverter"
+    value.converter.schemas.enable: "false"
+    max.interval: "3000"
+    iterations: "100000"
